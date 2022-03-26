@@ -36,14 +36,14 @@
             web3 = new Web3(web3.currentProvider);
         } else {
             // set the provider you want from Web3.providers
-            web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+            web3 = new Web3(new Web3.providers.HttpProvider("https://data-seed-prebsc-1-s1.binance.org:8545"));
         }
 
         web3.eth.defaultAccount = web3.eth.accounts[0];
 
         var infoContract = web3.eth.contract([{"constant":true,"inputs":[],"name":"getInfo","outputs":[{"name":"","type":"string"},{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_fName","type":"string"},{"name":"_age","type":"uint256"}],"name":"setInfo","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]);
 
-        var info = infoContract.at('0x8cdaf0cd259887258bc13a92c0a6da92698644c0');
+        var info = infoContract.at('0xBB178EfFD188C70d2b93b7e720ce2c6dEd612b22');
 
         info.getInfo(function(error, result){
             if(!error)
